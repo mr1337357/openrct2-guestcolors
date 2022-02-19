@@ -11,7 +11,7 @@ var changeColorOn = "None";// = context.sharedStorage.get("shirt-colordata.chang
 var onSpawn = false;
 var onDaily = false;
 
-var datums = [ "None", "MaxIntensity", "MinIntensity", "happiness",];
+var datums = [ "None", "maxIntensity", "minIntensity", "happiness","happinessTarget","nausea","nauseaTarget","hunger","thirst","toilet","mass","nauseaTolerance","cash","energy","energyTarget",];
 
 var doDaily = function()
 {
@@ -25,11 +25,7 @@ var doDaily = function()
 	}
 	map.getAllEntities("guest").forEach(function(guest)
 	{
-		//guest.tshirtColour = guest[changeColorOn];
-		if(changeColorOn == "MaxIntensity")
-		{
-			guest.tshirtColour = guest.maxIntensity;
-		}
+		guest.tshirtColour = guest[changeColorOn];
 	})
 }
 
@@ -44,11 +40,7 @@ var doOnSpawn = function(info)
     {
         return;
     }
-	//guest.tshirtColour = guest[changeColorOn];
-    if(changeColorOn == "MaxIntensity")
-    {
-    	guest.tshirtColour = guest.maxIntensity;
-	}
+	guest.tshirtColour = guest[changeColorOn];
 }
 
 var handle = undefined;
